@@ -48,13 +48,13 @@ def slowfun(x, y):
 
 
     if (x, y) not in remainders:
-        # for i in range(1, x+1):
-            # for j in range(1, y+1):
-            #     if (i, j) not in products:
-        global unique_count
-        unique_count += 1
-        print(f"New one! Now at {unique_count} unique combinations.")
-        helper(x, y)
+        for i in range(1, x+1):
+            for j in range(1, y+1):
+                if (i, j) not in remainders:
+        # global unique_count
+        # unique_count += 1
+        # print(f"New one! Now at {unique_count} unique combinations.")
+                    helper(i, j)
 
     return remainders[(x,y)]
 
