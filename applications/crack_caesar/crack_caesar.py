@@ -18,13 +18,21 @@ for char in text:
     else:
       frequencies[char] += 1
 
-print(letter_count)
-print(frequencies)
+# print(letter_count)
+# print(frequencies)
 
 # Probably no need to calculate percentages; lining up the rankings an equally valid option
 frequency_ranked_letters = ['E', 'T', 'A', 'O', 'H', 'N', 'R', 'I', 'S', 'D', 'L', 'W', 'U', 'G', 'F', 'B', 'M', 'Y', 'C', 'P', 'K', 'V', 'Q', 'J', 'X', 'Z']
 frequency_tuples = [(letter, frequencies[letter]) for letter in frequencies]
 frequency_tuples.sort(key=lambda tup: tup[1], reverse=True)
-decoder = {letter: frequency_tuples[i][0] for (i, letter) in enumerate(frequency_ranked_letters)}
-print(decoder)
+decoder = {frequency_tuples[i][0]: letter for (i, letter) in enumerate(frequency_ranked_letters)}
+# print(decoder)
 decoded_text = ''
+for char in text:
+  if char not in encoded_chars:
+    decoded_text += char
+  else:
+    decoded_char = decoder[char]
+    decoded_text += decoded_char
+
+print(decoded_text)
