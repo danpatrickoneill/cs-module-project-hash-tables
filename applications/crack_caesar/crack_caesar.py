@@ -4,11 +4,10 @@ import string
 with open("ciphertext.txt") as f:
   text = f.read()
 # Your code here
-valid_chars = set(string.ascii_lowercase)
+valid_chars = set(string.ascii_uppercase)
 frequencies = {}
 letter_count = 0
 for char in text:
-  char = char.lower()
   if char in valid_chars:
     # Increment letter_count for finding percentages
     letter_count += 1
@@ -21,3 +20,6 @@ for char in text:
 
 print(letter_count)
 print(frequencies)
+
+# Probably no need to calculate percentages; lining up the rankings an equally valid option
+
